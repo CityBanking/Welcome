@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Money Request - Treasure Banking</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            font-size: 48px;
+            color: #0070ba;
+        }
+
+        h1 {
+            color: #253b80;
+            font-size: 24px;
+            margin-top: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #6c7378;
+        }
+
+        input[type="email"],
+        input[type="number"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .amount-input {
+            position: relative;
+        }
+
+        .currency {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6c7378;
+        }
+
+        input[type="number"] {
+            padding-left: 25px;
+        }
+
+        .btn-submit {
+            background-color: #0070ba;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            padding: 12px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: #003087;
+        }
+
+        .balance {
+            text-align: right;
+            color: #6c7378;
+            margin-bottom: 20px;
+        }
+
+        .error {
+            color: #d20000;
+            margin-top: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <i class="fas fa-university logo"></i>
+            <h1>Citi Banking</h1>
+        </header>
+        <main>
+            <div class="balance">Balance: $<span id="balanceAmount">1,175,274.00</span></div>
+            <form id="moneyRequestForm">
+                <div class="form-group">
+                    <label for="recipient">Recipient's Email:</label>
+                    <input type="email" id="recipient" name="recipient" required>
+                </div>
+                <div class="form-group">
+                    <label for="amount">Amount:</label>
+                    <div class="amount-input">
+                        <span class="currency">$</span>
+                        <input type="number" id="amount" name="amount" min="0.01" step="0.01" required>
+                    </div>
+                    <div id="amountError" class="error">The requested amount exceeds your balance.</div>
+                </div>
+                <div class="form-group">
+                    <label for="note">Note (optional):</label>
+                    <textarea id="note" name="note" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Request Money</button>
+            </form>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('moneyRequestForm');
+            const amountInput = document.getElementById('amount');
+            const balanceElement = document.getElementById('balanceAmount');
+            const amountError = document.getElementById('amountError');
+
+            let balance = parseFloat(balanceElement.textContent);
+
+            amountInput.addEventListener('input', function() {
+                const requestedAmount = parseFloat(this.value);
+                if (requestedAmount > balance) {
+                    amountError.style.display = 'block';
+                } else {
+                    amountError.style.display = 'none';
+                }
+            });
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const requestedAmount = parseFloat(amountInput.value);
+
+                if (requestedAmount > balance) {
+                    amountError.style.display = 'block';
+                } else {
+                    // Here you would typically send the request to a server
+                    alert(`Money request for $${requestedAmount.toFixed(2)} sent successfully!`);
+                    balance -= requestedAmount;
+                    balanceElement.textContent = balance.toFixed(2);
+                    form.reset();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

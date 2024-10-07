@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CitiBanking Dashboard</title>
+    <!-- Added Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        :root {
+            --primary-color: #0070ba;
+            --secondary-color: #003087;
+            --background-color: #f5f7fa;
+            --text-color: #2c2e2f;
+        }
+
+        body {
+            background-color: var(--background-color);
+        }
+
+        .navbar {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            margin-left: auto; /* This pushes the nav-links to the right */
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Rest of your existing styles remain the same */
+        .main-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .balance-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .balance-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .balance-amount {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #eee;
+            color: var(--text-color);
+        }
+
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .action-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .activity-section {
+            background: white;
+            border-radius: 1px;
+            padding: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .activity-area {
+            background: white;
+            border-radius: 1px;
+            padding: 2rem;
+            box-shadow: 0 2px 2px rgba(0,0,0,0.1);
+        }
+
+        .activity-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .activity-amount.credit {
+            color: #28a745;
+        }
+
+        .activity-amount.debit {
+            color: #dc3545;
+        }
+
+        .red-text {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo-container">
+                <img src="Citi.png" alt="Logo" width="100">
+            </div>
+            <div class="nav-links">
+                <a href="bank dashboard.html">Home</a>
+                <a href="#">Send & Request</a>
+                <a href="#">Wallet</a>
+                <a href="#">Activity</a>
+                <a href="cosutomer support.html">Help</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="balance-card">
+            <div class="balance-header">
+                <div>
+                    <h2>Available balance</h2>
+                    <div class="balance-amount">$1,175,274.00</div>
+                    <p class="red-text">•ACTIVE</p>
+                </div>
+                <div class="action-buttons">
+                    <a href="send.html">
+                    <button class="btn btn-primary">Send</button></a>
+                    <a href="withdrawal 2.html">
+                    <button class="btn btn-secondary">Withdraw</button></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="quick-actions">
+            <div class="action-card">
+                <h3>Transfer to Bank</h3>
+            </div>
+            <div class="action-card">
+                <h3>Pay Bills</h3>
+            </div>
+            <div class="action-card">
+                <a href="cybto.html">
+                <h3>Crypto</h3></a>
+            </div>
+            <div class="action-card">
+                <a href="cosutomer support.html">
+                <h3>Customer Care</h3></a>
+            </div>
+        </div>
+
+        <div class="activity-section">
+            <h2>Recent Activity</h2>
+            <div class="activity-list">
+                <div class="activity-item">
+                    <div>
+                        <h4>Bank Account Fees</h4>
+                        <span>Sep 20, 2024</span>
+                    </div>
+                    <div class="activity-amount debit">-$1,250.00</div>
+                </div>
+                <div class="activity-item">
+                    <div>
+                        <h4>Credit Card Cost</h4>
+                        <span>Sep 15, 2024</span>
+                    </div>
+                    <div class="activity-amount debit">-$420.99</div>
+                </div>
+                <div class="activity-item">
+                    <div>
+                        <h4>Neflix Subscription</h4>
+                        <span>August 2, 2023</span>
+                    </div>
+                    <div class="activity-amount debit">-$35.00</div>
+                </div>
+            </div>
+        </div>
+        <div class="activity-area">
+            <div class="activity-list">
+                <div class="activity-item">
+                    <div>
+                        <h4>United Kingdom Plane Ticket</h4>
+                        <span>May 23, 2024</span>
+                    </div>
+                    <div class="activity-amount debit">-$550.00</div>
+                </div>
+                <div class="activity-item">
+                    <div>
+                        <h4>Forex-Trading</h4>
+                        <span>May 11, 2024</span>
+                    </div>
+                    <div class="activity-amount credit">+$774,500.00</div>
+                </div>
+                <div class="activity-item">
+                    <div>
+                        <h4>Transfer from Mr Chris Kaylann</h4>
+                        <span>Feb 2, 2024</span>
+                    </div>
+                    <div class="activity-amount credit">$301,354.99</div>
+                </div>
+            </div>
+        </div>
+        <div class="activity-section">
+            <div class="activity-list">
+                <div class="activity-item">
+                    <div>
+                        <h4>Online Payment</h4>
+                        <span>Dec 20, 2023</span>
+                    </div>
+                    <div class="activity-amount debit">-$98,250.00</div>
+                </div>
+                <div class="activity-item">
+                    <div>
+                        <h4>Transfer from Bank</h4>
+                        <span>Sep 8, 2023</span>
+                    </div>
+                    <div class="activity-amount credit">+$533,920.00</div>
+                </div>
+                <div class="activity-item">
+                    <div>
+                        <h4>Apple Purchase</h4>
+                        <span>Mar 27, 2023</span>
+                    </div>
+                    <div class="activity-amount debit">-$3,435.99</div>
+                </div>
+            </div>
+        </div>
+        <div class="activity-area">
+            <div class="activity-list">
+                <div class="activity-item">
+                    <div>
+                        <h4>Jumia Purchase</h4>
+                        <span>Dec 4, 2022</span>
+                    </div>
+                    <div class="activity-amount debit">-$550.00</div>
+                </div>
+                <div class="activity-item">
+                    <div>
+                        <h4>Transfer from Alex</h4>
+                        <span>Dec 1, 2022</span>
+                    </div>
+                    <div class="activity-amount credit">+$274,500.00</div>
+                </div>
+                <div class="activity-item">
+                    <div>
+                        <h4>Transfer from Premuim Deluxe</h4>
+                        <span>May 23, 2022</span>
+                    </div>
+                    <div class="activity-amount credit">$301,354.99</div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </main>
+</body>
+</html>
